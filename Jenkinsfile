@@ -20,8 +20,8 @@ pipeline{
     stages{
         stage("Compile"){
             steps{
-                sh 'mvn package -DskipTests'
-                sh 'time'
+                sh 'time mvn package -DskipTests'
+               
             }
             post{
                 success{
@@ -32,14 +32,14 @@ pipeline{
         }
         stage("Unit Test"){
             steps{
-                sh 'mvn test '
-                sh 'time'
+                sh 'time mvn test '
+              
             }
 
         }
         stage("Check Style Analysis"){
             steps{
-                sh 'mvn checkstyle:checkstyle'
+                sh 'time mvn checkstyle:checkstyle'
             }
 
         }
