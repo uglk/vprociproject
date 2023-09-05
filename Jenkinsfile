@@ -58,5 +58,15 @@ pipeline{
             }
             }
         }
+        stage("Sonar Quality"){
+            steps{
+                timeout(time: 1, unit: 'HOURS'){
+                 waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+        stage("Nexus Artifact Uploader"){
+
+        }
     }
 }
