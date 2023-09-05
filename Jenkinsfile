@@ -21,6 +21,7 @@ pipeline{
         stage("Compile"){
             steps{
                 sh 'mvn package -DskipTests'
+                sh 'time'
             }
             post{
                 success{
@@ -32,6 +33,7 @@ pipeline{
         stage("Unit Test"){
             steps{
                 sh 'mvn test '
+                sh 'time'
             }
 
         }
