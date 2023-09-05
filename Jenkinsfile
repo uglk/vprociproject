@@ -65,8 +65,8 @@ pipeline{
                 }
             }
         }
-        stage("Nexus Artifact Uploader"){
+        // stage("Nexus Artifact Uploader"){
 
-        }
+        // }
     }
 }
