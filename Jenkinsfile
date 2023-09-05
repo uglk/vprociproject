@@ -36,7 +36,7 @@ pipeline{
         }
         stage("Unit Test"){
             steps{
-                sh 'time mvn test '
+                sh 'time mvn test /'
               
             }
 
