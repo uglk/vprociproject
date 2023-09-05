@@ -18,7 +18,7 @@ pipeline{
     stages{
         stage("Compile"){
             steps{
-                sh 'mvn clean install package -DskipTests'
+                sh 'mvn package -DskipTests'
             }
             post{
                 success{
@@ -26,6 +26,18 @@ pipeline{
                     archiveArtifacts artifacts: '**/*.war'
                 }
             }
+        }
+        stage("Unit Test"){
+            steps{
+                sh 'mvn test '
+            }
+
+        }
+         stage("Check Style Analysis"){
+            steps{
+                sh 'mvn checkstyle:checkstyle'
+            }
+
         }
     }
 }
