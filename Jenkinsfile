@@ -20,6 +20,11 @@ pipeline{
               sh 'mvn test'
             }
         }
+        stage("Check Style Analysis"){
+            steps{
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
     }
     post {
         always {
