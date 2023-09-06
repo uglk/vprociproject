@@ -16,6 +16,13 @@ pipeline{
             }
         }
     }
+    stages{
+        stage("Unit test"){
+            steps{
+                sh 'mvn test'
+            }
+        }
+    }
     post {
         always {
             echo 'Slack Notifications.'
