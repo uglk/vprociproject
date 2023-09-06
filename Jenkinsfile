@@ -25,6 +25,12 @@ pipeline{
                 sh 'mvn checkstyle:checkstyle'
             }
         }
+        stage("Owasp Scan"){
+            steps{
+                 dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'dp-check'
+                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
     }
     post {
         always {
