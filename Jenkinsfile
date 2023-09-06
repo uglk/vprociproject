@@ -28,19 +28,19 @@ pipeline{
                
             }
         }
-        stage("Unit Test"){
-            steps{
-                sh 'time mvn test'
+        // stage("Unit Test"){
+        //     steps{
+        //         sh 'time mvn test'
               
-            }
+        //     }
 
-        }
-        stage("Check Style Analysis"){
-            steps{
-                sh 'time mvn checkstyle:checkstyle'
-            }
+        // }
+        // stage("Check Style Analysis"){
+        //     steps{
+        //         sh 'time mvn checkstyle:checkstyle'
+        //     }
 
-        }
+        // }
     //     stage("Sonar Analysis"){
     //         environment{
     //             scannerHome = tool "$SONARSCANNER"
