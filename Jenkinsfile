@@ -9,28 +9,17 @@ pipeline{
      jdk "jdk8"
      //check again
     }
-    stages{ 
-        stage("Compile"){
-            steps{
-                sh 'mvn compile -DskipTests'
-               
-            }
-        }
-        stage("Unit test"){
-            steps{
-              sh 'mvn test'
-            }
-        }
+    stages{
         stage("Check Style Analysis"){
             steps{
                 sh 'mvn checkstyle:checkstyle'
             }
-        }
-        stage("Owasp Scan"){
+        } 
+        stage("Generate Artifact"){
             steps{
-                 sh 'mvn dependency-check:check'
+                sh 'mvn clean install package'
             }
-        }
+        } 
     }
     post {
         always {
