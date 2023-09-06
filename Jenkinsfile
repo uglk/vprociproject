@@ -28,8 +28,7 @@ pipeline{
         }
         stage("Owasp Scan"){
             steps{
-                 dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'dp-check'
-                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                 sh 'mvn dependency-check:check'
             }
         }
     }

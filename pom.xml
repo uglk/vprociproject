@@ -141,7 +141,7 @@
  		    <plugin>
  		        <groupId>org.jacoco</groupId>
  		        <artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.4</version>
+			     <version>0.8.4</version>
 		        <executions>
 		            <execution>
 		                <id>jacoco-initialize</id>
@@ -159,6 +159,21 @@
 		            </execution>
 		        </executions>
 		</plugin>
+        <plugin>
+            <groupId>org.owasp</groupId>
+            <artifactId>dependency-check-maven</artifactId>
+            <version>8.4.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <failBuildOnCVSS>7</failBuildOnCVSS>
+            </configuration>
+        </plugin>
         </plugins>
     </build>
 	<repositories>
