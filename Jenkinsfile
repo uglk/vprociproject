@@ -17,7 +17,12 @@ pipeline{
         } 
         stage("Generate Artifact"){
             steps{
-                sh 'mvn clean install package'
+                sh 'mvn clean package'
+            }
+        }
+        stage("owasp dependency check"){
+            steps{
+                sh 'mvn dependency-check:check'
             }
         } 
     }
