@@ -7,6 +7,7 @@ pipeline{
     tools{
      maven "MAVEN3"
      jdk "jdk8"
+     //check again
     }
     stages{ 
         stage("Compile"){
